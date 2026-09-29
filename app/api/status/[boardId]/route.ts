@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { getDb } from "@/lib/db";
 
 // GET /api/status/<board-id> - return the saved status for every node on
 // one board. The frontend calls this once per board when the tree first
@@ -9,7 +9,7 @@ export async function GET(
   request: Request,
   { params }: { params: { boardId: string } }
 ) {
-  const rows = db
+  const rows = getDb()
     .prepare("SELECT id, status, proof_link FROM node_status WHERE board_id = ?")
     .all(params.boardId);
   return NextResponse.json(rows);

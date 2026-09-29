@@ -131,12 +131,3 @@ them directly.
 - **`CLAUDE.md`** - my own session-to-session briefing notes for Claude
   Code, not part of the app itself.
 
-## What's left
-
-1. ✅ Static tree rendering, gating, hold-to-complete
-2. ✅ SQLite persistence (status + proof links)
-3. ✅ Multiple boards with a slide-to-switch carousel
-4. ⬜ A second board's actual content (currently a blank placeholder)
-5. ⬜ Dockerise, add a GitHub Actions pipeline, deploy to AWS - this step
-   deliberately doubles as proof-of-skill for the CI/CD and AWS nodes
-   themselves, so it comes *after* learning those, not before.

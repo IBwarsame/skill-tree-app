@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { getDb } from "@/lib/db";
 import type { NodeStatus } from "@/lib/skillTreeData";
 
 const VALID_STATUSES: NodeStatus[] = ["completed", "in_progress", "locked"];
@@ -13,6 +13,7 @@ export async function PATCH(
   { params }: { params: { boardId: string; id: string } }
 ) {
   const { status, proofLink } = await request.json();
+  const db = getDb();
 
   if (status !== undefined) {
     if (!VALID_STATUSES.includes(status)) {
